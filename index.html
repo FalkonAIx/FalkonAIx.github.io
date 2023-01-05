@@ -1,13 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-	<script src="index.js"></script>
-  </body>
+
+<!-- Mirrored from nakamoto.com/hashcash/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jan 2023 16:18:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hashcash</title>
+  <link rel="stylesheet" href="../assets/css/screena444.css?v=6a0afa883b">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
+
+  <script>
+  var themeOptions = {
+    white_logo: '',
+    disqus_shortname: '',
+    instagram_token: '',
+    instagram_username: '',
+    copyright: '<a href="https://nakamoto.ghost.io/contribute" target="_blank">Contribute</a> an article',
+    social_links: {
+      facebook: '',
+      github: 'https://github.com/nakamoto',
+      telegram: 'https://t.me/nakamotocom',
+      twitter: 'https://www.twitter.com/nakamoto',
+      instagram: '',
+      dribbble: '',
+      behance: '',
+      linkedin: '',
+      vk: '',
+      rss: '',
+    }
+  };
+</script>
+  <script>
+    if (localStorage.getItem('dark_mode') == 'true') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+  
+  <meta name="description" content="To understand Bitcoin&#x27;s consensus mechanism and the concept of proof-of-work, we first have to understand Hashcash." />
+    <link rel="icon" href="../content/images/size/w256h256/2020/01/bitcoin-flag-transparent--1-.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="NAKAMOTO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Hashcash" />
+    <meta property="og:description" content="To understand Bitcoin&#x27;s consensus mechanism and the concept of proof-of-work, we first have to understand Hashcash." />
+    <meta property="og:url" content="https://nakamoto.com/hashcash/" />
+    <meta property="og:image" content="https://nakamoto.com/content/images/2020/01/hashcash.png" />
+    <meta property="article:published_time" content="2019-12-30T02:00:00.000Z" />
+    <meta property="article:modified_time" content="2021-02-14T14:14:33.000Z" />
+    <meta property="article:tag" content="Course" />
+    <meta property="article:tag" content="Bitcoin" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/nakamotocom" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hashcash" />
+    <meta name="twitter:description" content="To understand Bitcoin&#x27;s consensus mechanism and the concept of proof-of-work, we first have to understand Hashcash." />
+    <meta name="twitter:url" content="https://nakamoto.com/hashcash/" />
+    <meta name="twitter:image" content="https://nakamoto.com/content/images/2020/01/hashcash.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Haseeb Qureshi" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Course, Bitcoin" />
+    <meta name="twitter:site" content="@nakamoto" />
+    <meta name="twitter:creator" content="@hosseeb" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1216" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "NAKAMOTO",
+        "url": "https://nakamoto.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nakamoto.com/content/images/size/w256h256/2020/01/bitcoin-flag-transparent--1-.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Haseeb Qureshi",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://nakamoto.com/content/images/2020/01/my_face.jpg",
+            "width": 640,
+            "height": 640
+        },
+        "url": "https://nakamoto.com/author/haseeb/",
+        "sameAs": [
+            "https://haseebq.com",
+            "https://twitter.com/hosseeb"
+        ]
+    },
+    "headline": "Hashcash",
+    "url": "https://nakamoto.com/hashcash/",
+    "datePublished": "2019-12-30T02:00:00.000Z",
+    "dateModified": "2021-02-14T14:14:33.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://nakamoto.com/content/images/2020/01/hashcash.png",
+        "width": 2000,
+        "height": 1216
+    },
+    "keywords": "Course, Bitcoin",
+    "description": "To understand Bitcoin&#x27;s consensus mechanism and the concept of proof-of-work, we first have to understand Hashcash.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nakamoto.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.26" />
+    <link rel="alternate" type="application/rss+xml" title="NAKAMOTO" href="https://nakamoto.com/rss/" />
+    <script defer src="../../cdn.jsdelivr.net/ghost/portal%40_2.22/umd/portal.min.js" data-ghost="https://nakamoto.com/" data-key="a3fa75a9c8f1a59f3841308ff6" data-api="https://nakamoto.ghost.io/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../../cdn.jsdelivr.net/ghost/sodo-search%40_1.1/umd/sodo-search.min.js" data-key="a3fa75a9c8f1a59f3841308ff6" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://nakamoto.ghost.io/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.mina444.js?v=6a0afa883b"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.mina444.css?v=6a0afa883b">
+    <script defer src="../public/member-attribution.mina444.js?v=6a0afa883b"></script><style>:root {--ghost-accent-color: #15171A;}</style>
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.css" />
+</head>
+<body class="post-template tag-course tag-bitcoin">
+  <div class="container">
+    <div class="site">
+      <header class="site-header">
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="burger hidden-lg hidden-xl"></div>
+      <a class="logo" href="https://nakamoto.com/">
+    <span class="logo-text">NAKAMOTO</span>
+</a>      <div class="sep hidden-xs hidden-sm hidden-sm"></div>
+        <nav class="main-menu hidden-xs hidden-sm hidden-md">
+          <ul class="nav-list u-plain-list">
+    <li class="menu-item menu-item-home"><a class="menu-item-link" href="#">Home</a></li>
+    <li class="menu-item menu-item-twitter"><a class="menu-item-link" href="https://twitter.com/hashcasheth">Twitter</a></li>
+    <li class="menu-item menu-item-contribute"><a class="menu-item-link" href="https://t.me/HashCashPortal">Telegram</a></li>
+    <li class="menu-item menu-item-about"><a class="menu-item-link" href="https://medium.com/@HashCashHakamoto/">About</a></li>
+</ul>
+        </nav>
+    </div>
+    <div class="navbar-right">
+      <div class="toggle-track">
+        <div class="toggle-moon"><i class="icon icon-brightness-2"></i></div>
+        <div class="toggle-sun"><i class="icon icon-white-balance-sunny"></i></div>
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+  </div>
+</header>      <div class="site-content">
+        
+<link href="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+<link href="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+
+<style>
+  .nav-buttons {
+    font-size: 15px;
+    line-height: 1em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    color: rgb(59, 69, 78);
+    -webkit-box-direction: normal;
+    box-sizing: inherit;
+    display: block;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    --primary-color: none;
+  }
+
+  .highlight:hover {
+    color: rgb(56, 110, 196) !important;
+    border-color: rgb(56, 110, 196);
+    cursor: pointer;
+    transition: color 250ms ease 0s;
+  }
+
+  .highlight:hover * {
+    color: rgb(56, 110, 196);
+    transition: color 250ms ease 0s;
+  }
+
+  .nav-links {
+    width: auto;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "previous next";
+    grid-template-columns: 1fr 1fr;
+    padding: 0px;
+    grid-column-gap: 24px;
+  }
+
+  .prev-card {
+    box-sizing: inherit;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    align-items: center;
+    justify-self: stretch;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-box-orient: horizontal;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(230, 236, 241);
+    border-image: initial;
+    padding: 0px;
+    grid-area: previous / previous / previous / previous;
+    border-radius: 3px;
+    text-decoration: none;
+    page-break-inside: avoid;
+    transition: border 250ms ease 0s;
+  }
+
+  .card {
+    line-height: 1em;
+    box-sizing: inherit;
+    display: block;
+    font-size: 24px;
+    flex: 0 0 auto;
+    padding: 16px;
+    transition: color 250ms ease 0s;
+  }
+
+  .svg-icon {
+    line-height: 1em;
+    color: rgb(157, 170, 182);
+    font-size: 24px;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: currentcolor;
+    box-sizing: inherit;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+  }
+
+  .prev-card-body {
+    box-sizing: inherit;
+    display: block;
+    text-align: right;
+    flex: 1 1 0%;
+    padding: 16px;
+  }
+
+  .card-hint {
+    text-align: right;
+    box-sizing: inherit;
+    color: rgb(157, 170, 182);
+    display: block;
+    padding: 0px;
+  }
+
+  .span-text {
+    text-align: right;
+    box-sizing: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.625;
+  }
+
+  .card-title {
+    text-align: right;
+    box-sizing: inherit;
+    display: block;
+    padding: 0px;
+    transition: color 250ms ease 0s;
+  }
+
+  .card-title-text {
+    text-align: right;
+    box-sizing: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .next-card {
+    box-sizing: inherit;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    align-items: center;
+    justify-self: stretch;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-box-orient: horizontal;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(230, 236, 241);
+    border-image: initial;
+    padding: 0px;
+    grid-area: next / next / next / next;
+    border-radius: 3px;
+    text-decoration: none;
+    page-break-inside: avoid;
+    transition: border 250ms ease 0s;
+  }
+
+  .next-card-body {
+    box-sizing: inherit;
+    display: block;
+    flex: 1 1 0%;
+    padding: 16px;
+  }
+
+  .next-flex {
+    display: flex;
+  }
+
+  .kg-image {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  h3:before {
+    top: -32px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: " ";
+    position: absolute;
+    background-color: #E6ECF1;
+  }
+
+  h3 {
+    display: flex;
+    position: relative;
+    margin: 0;
+    margin-top: 73px !important;
+    margin-bottom: 24px;
+  }
+
+  .u-text-format a:after {
+    display: none;
+  }
+
+  .u-text-format a {
+    text-decoration: underline;
+  }
+
+  .nav-buttons a {
+    text-decoration: none;
+  }
+
+  code {
+    background-color: rgb(245, 247, 249);
+    margin: 0px 1px;
+    padding: 3px 1px;
+    border-radius: 3px;
+  }
+
+  .dark-mode code {
+    color: #666;
+  }
+
+  .post-content table {
+    width: 100%;
+    position: relative;
+    border-collapse: collapse;
+    page-break-inside: auto;
+    border-spacing: 2px;
+    border-color: grey;
+    margin: 24px 0px 32px;
+  }
+
+  .post-content tr {
+    border-bottom: 1px solid rgb(230,236,241);
+    padding: 10px;
+    page-break-after: auto;
+    page-break-inside: avoid;
+  }
+
+  .post-content thead tr {
+    color: rgb(157, 170, 182);
+    border-bottom: 2px solid rgb(230,236,241);
+  }
+
+  .post-content thead th {
+    text-align: left;
+    padding: 8px;
+    align-self: start;
+    align-items: start;
+  }
+
+  .post-content tbody tr td {
+    padding: 8px;
+  }
+</style>
+
+<div class="content-area">
+  <main class="site-main kg-width-normal">
+      <article class="post tag-course tag-bitcoin single-post">
+        <header class="post-header big-title">
+    <h1 class="post-title">Hashcash</h1>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2023-05-01">
+              Jan 05, 2023
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          6 min read
+        </span>
+
+      </div>
+</header>          <div class="post-media kg-width-wide">
+
+  </div>
+        <div class="post-content u-text-format">
+          <p>Hashcash was an early precursor to digital cash. Satoshi cited it as his inspiration for the proof-of-work implementation in Bitcoin. To understand Bitcoin's consensus mechanism and proof-of-work, we first have to contend with Hashcash. Luckily, Hashcash is simple enough that we'll be implementing it ourselves by the end of this lesson.</p><p>Hashcash was invented by Adam Back in 1997 as a way to prevent email spam. Even in 1997, email spam was a nuisance to anyone with an email account. Adam Back realized this was because of a fundamental problem: all you needed to email someone was send a few packets to a mail server. Sending an email was so inexpensive as to be basically free. Honest users only ever sent a handful of emails a day, and yet spammers could send tens of millions at almost no cost.</p><p>So why not raise the price of entry?</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://mccormick.cx/gfx/blogref/hashcash-auctions/hashcash-token.svg" class="kg-image" alt loading="lazy"><figcaption><span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1" style="max-width: 100%;">Credit: Chris McCormick</span></figcaption></figure><p>Imagine sending an email cost a penny. To a normal user, this is fine—they have a few pennies to spare each day. But a spammer would have to pay up millions of pennies, making their spam campaigns impossible.</p><p>You might notice this is a bit circular: charging a penny per email implies the existence of digital pennies to pay with. But we established earlier that no such solution existed—that's why we needed Bitcoin! (And normal payment rails wouldn't suffice, since credit cards charge a lot more than a penny in fees for any transaction.)</p><p>So how could Hashcash force spammers to cough up a digital penny? The answer lies in the core idea behind Hashcash, which is now also integral to Bitcoin: <strong>proof-of-work</strong>.</p><h3 id="proof-of-work">Proof-of-work</h3><p>The notion of proof-of-work (PoW) was first invented by two cryptographers, Cynthia Dwork and Moni Naor, though Adam Back also arrived at the idea independently when he created Hashcash.</p><p><strong>A PoW is a</strong> <strong>computational proof that some work has been performed</strong>. Usually, this is implemented through a computational puzzle. The puzzle should be:</p><ul><li>easy to state <em>(find me a needle in this haystack)</em></li><li>hard to solve <em>(the haystack is big)</em></li><li>easy to verify <em>(yep, that's a needle)</em></li></ul><p>Generating a solution to the puzzle serves as evidence that the solver performed some work. If we make this puzzle hard enough, we can be satisfied that it would cost about a penny of work (in hardware depreciation and electricity costs). We can then say: okay, you expended a penny of work, you can send me that email.</p><p>In their original paper, Dwork and Naor suggest several candidate PoW functions, such as taking square roots in a finite field. Other researchers proposed schemes such as generating arbitrary hash collisions. But Adam Back proposed a much simpler PoW algorithm, which would eventually be adopted by Satoshi in Bitcoin: generating a hash digest with a specified prefix.</p><h3 id="hashcash-s-proof-of-work">Hashcash's proof-of-work</h3><p>Hashcash's proof-of-work is pretty straightforward. First, the mail server specifies a difficulty level, a number that defines how hard the PoW must be. The default is 20. The proof of work in Hashcash is then to <strong>generate a message whose SHA-1 hash digest starts with 20 zeros in binary.</strong></p><p>How can you create a hash digest with a specified prefix? Remember, with a cryptographic hash function, you shouldn't be able to predict the output any better than random. This means you have no choice but to brute force it. To solve this PoW, you just keep trying different inputs until one of them happens to have enough 0s in front of it.</p><p>The input you grind through is generally called the <strong>nonce</strong>. Let's try iterating through a few nonces and see if we can generate a single leading leading zero in hexadecimal (equivalent to a four 0s in binary). We'll make our nonce always start with <code>"Here we go!"</code></p><pre><code class="language-python">from hashlib import sha1
+
+sha1(b"Here we go!00").hexdigest()
+# '2bf6d36bf9b140c2a62c66d79f6bd578dccdc141'
+sha1(b"Here we go!01").hexdigest()
+# 'cd7810e0446a26b4a4e7c1773989050d9fe798a2' =&gt; Nope
+sha1(b"Here we go!02").hexdigest()
+# '3fbf1f91e1a212c66f65786040bb25cc91f4598b' =&gt; Nope
+sha1(b"Here we go!03").hexdigest()
+# '2ad11aff9dd50f5e8641862638db2ff8420b89b8' =&gt; Nope
+sha1(b"Here we go!04").hexdigest()
+# '173ba0b3dc1adbce286c4ba9ea62199ab659e608' =&gt; Nope
+sha1(b"Here we go!05").hexdigest()
+# '076174d1a153e87da3248278132b007cf6adb701' =&gt; Ding ding ding!</code></pre><p>Okay, so how difficult is it to generate a hashcash PoW with a difficulty level of \(N\) bits?</p><p>Since each bit of your digest has an equal likelihood to be 0 or 1, it should take about \(2^{20}\) iterations to get 20 zeros in a row. Every additional 0 doubles the difficulty. Here's the intuition: each additional bit you require invalidates half of the previously valid digests.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../files.gitbook.com/v0/b/gitbook-legacy-files/o/assets/-LiV3TEXGaOaB0hMLjKn/-LiocSSTqObGFy3wGbBT/-Lipd12vuaMx9KC6xr4a/image7bf7.png?alt=media&amp;token=bd037d8f-bd35-4162-9f47-f5b6ef35b335" class="kg-image" alt loading="lazy"><figcaption><span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1" style="max-width: 100%;">Hashcash configuration for an email server. Credit: MDaemon</span></figcaption></figure><p>If you think about it, this is amazing. I can show you some random bytes, and if you hash them and see 64 zeros, then you know that I spent about $100 hashing to find that value. Hashcash lets you represent real-world costliness in cyberspace via just a random-looking number. This idea has deeply important implications for Bitcoin, as we'll explore in later modules.</p><h3 id="mitigating-double-spends">Mitigating double spends</h3><p>Hashcash's PoW is simple and elegant, but we've still got the deal with the scourge of digital money: double spends.</p><p>A naive implementation of Hashcash suffers from a nasty double spend problem. What's to stop a spammer from just generating one really difficult hashcash token, and then using the same token for every email they send?</p><p>We need some way to prevent repeat spending of Hashcash tokens. <strong>Hashcash has two simple mechanisms for this.</strong></p><p>The first is limiting each hashcash token to a specific email address, so they're not reusable for different recipients. This is done by forcing the hashed token to include a string specific to that email address.</p><p>The original Hashcash format is as follows: <code>VERSION:DATE:EMAIL_ADDRESS:NONCE</code>. First, the Hashcash protocol version (for future versioning), today's date, the recipient's email address, and then the nonce you randomly churn through until you find one that makes the whole thing satisfy the difficulty level. The token is then included as an <code>X-Hashcash</code> header in the SMTP request.</p><p>You can see some Hashcash tokens Adam Back generated on the <a href="http://www.hashcash.org/faq/" rel="noopener noreferrer">Hashcash website</a>, such as this one:</p><pre><code class="language-python">from hashlib import sha1
+
+sha1(b"0:030626:adam@cypherspace.org:6470e06d773e05a8").hexdigest()
+# '00000000c70db7389f241b8f441fcf068aead3f0'</code></pre><p>This hashcash digest has 8 leading zeros in hex, equivalent to 32 leading zeros in binary. This means it should've taken roughly \(2^{32}\) iterations to find this nonce.</p><p>Forcing the token to include the email and date solves the problem of using a single Hashcash token to spam multiple recipients. But there's still one problem here. I can reuse the same Hashcash token <em>on the same person</em>. What's to stop me from sending it 1,000 times to the same person in the same day?</p><p>To mitigate this, Hashcash requires the email server to remember any Hashcash tokens received in the last day. If it has already seen a certain token that day, then the solution is rejected. For most servers, this should only demand a small amount of memory. With these protections in place, it should no longer be possible to double spend Hashcash tokens.</p><p>Hashcash was a clever design, but it didn't take off on a large scale. After email services centralized into a few companies with massive data sets (Gmail, Yahoo, MSN, etc.), those companies were able to mitigate most email spam through machine learning and email reputation systems. Centralization ended up producing non-economic solutions to spam prevention, obviating the need for Hashcash.</p><p>But Hashcash was a very important stepping stone in getting the cypherpunks closer to the vision of digital cash. And its application of proof of work was a direct precursor to Bitcoin.</p>
+  
+</div>
+
+<script>
+  var disqus_config = function () {
+    this.page.url = 'index.html';
+    this.page.identifier = 'ghost-5e094c2ccdd11200382a2d68';
+  };
+
+  if (themeOptions.disqus_shortname != '') {
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + themeOptions.disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  </main>
+</div>
+
+<style>
+  blockquote {
+    color: #888888;
+    font-weight: 400;
+    border-left: 3px solid;
+    border-color: #E6ECF1;
+    padding-left: 21px;
+  }
+</style>
+
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/show-language/prism-show-language.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.min.js"></script>
+<script type="text/javascript" async src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxb198.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$$", "$$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
+
+      </div>
+            <div class="instagram-feed kg-width-full u-hover-wrapper"></div>
+      <footer class="site-footer kg-width-wide">
+  <div class="copyright"></div>
+  <a class="logo" href="https://nakamoto.com/">
+    <span class="logo-text">NAKAMOTO</span>
+</a>  <div class="footer-social"></div>
+</footer>    </div>
+  </div>
+
+  <div class="dimmer"></div>
+
+  <div class="off-canvas">
+    <div class="canvas-close"><i class="canvas-icon icon icon-window-close"></i></div>
+    <div class="mobile-menu"></div>
+  </div>
+
+  <script
+    src="../../code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <script src="../assets/js/main.mina444.js?v=6a0afa883b"></script>
+
+  
+
+  <script src="../../cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.post-content',
+        hasInnerContainers: true
+    });
+</script>
+<script>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+  	analytics.load("rviwIGXgL7LastDP4hGwoFiV78caxuAf");
+  	analytics.page();
+  }}();
+</script>
+</body>
+
+<!-- Mirrored from nakamoto.com/hashcash/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jan 2023 16:18:39 GMT -->
 </html>
